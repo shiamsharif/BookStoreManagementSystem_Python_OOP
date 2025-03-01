@@ -23,7 +23,6 @@ class Book:
 
     @staticmethod
     def from_string(book_string):
-        """Convert a stored book string back into a Book object."""
         isbn, title, author, genre, price, stock = book_string.strip().split("|")
         return Book(isbn, title, author, genre, float(price), int(stock))
 
