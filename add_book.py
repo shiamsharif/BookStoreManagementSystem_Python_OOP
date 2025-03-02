@@ -1,6 +1,8 @@
 """ 
-method- user add book
-    price and stock varification not negative
+method- 
+    1. user add book
+    2. price and stock varification not negative
+    3. add to the file
 """
 
 from bookstore import BookStore
