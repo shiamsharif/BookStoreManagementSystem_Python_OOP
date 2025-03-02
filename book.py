@@ -15,7 +15,7 @@ class Book:
         self.stock = stock
         
     def __str__(self):
-    return f"Book: {self.title} by {self.author} ({self.genre}) - ${self.price}, Stock: {self.stock}"
+        return f"Book: {self.title} by {self.author} ({self.genre}) - ${self.price}, Stock: {self.stock}"
 
 
     def to_string(self):
