@@ -1,1 +1,1 @@
-20251 | Django 5 by Example | Antonio mele | Programing | 540.0 | 2
+1|Django 5 By Example|Antoni mele|Programming|570.0|10

@@ -5,28 +5,28 @@
 4. add books in the file
 """
 
+# bookstore.py
 from book import Book
 
 class BookStore:
-    FILE_NAME = "books.txt"
-
-    def __init__(self):
-        self.books = self.load_books()
+    def __init__(self, filename="books.txt"):
+        self.filename = filename
+        self.books = [] 
 
     def load_books(self):
-        books = []
+        """Load books from file into memory."""
+        self.books = []  
         try:
-            with open(self.FILE_NAME, "r") as file:
+            with open(self.filename, "r") as file:
                 for line in file:
-                    books.append(Book.from_string(line))
+                    isbn, title, author, genre, price, stock = line.strip().split("|")
+                    self.books.append(Book(isbn, title, author, genre, float(price), int(stock)))
         except FileNotFoundError:
-            pass  # No books in the file
-        return books
+            print("⚠️ No book data found. Starting fresh.")
 
     def save_books(self):
-        # Save to the file
-        with open(self.FILE_NAME, "w") as file:
+        """Save books to file."""
+        with open(self.filename, "w") as file:
             for book in self.books:
-                file.write(book.to_string())
-
+                file.write(f"{book.isbn} | {book.title} | {book.author} | {book.genre} | {book.price}  |  {book.stock}\n")
 
