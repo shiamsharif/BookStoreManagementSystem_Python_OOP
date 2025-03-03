@@ -19,7 +19,7 @@ class Book:
 
 
     def to_string(self):
-        return f"{self.isbn}|{self.title}|{self.author}|{self.genre}|{self.price}|{self.stock}\n"
+        return f"{self.isbn} | {self.title} | {self.author} | {self.genre} | {self.price} | {self.stock}\n"
 
     @staticmethod
     def from_string(book_string):
