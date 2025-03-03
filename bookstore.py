@@ -12,6 +12,7 @@ class BookStore:
     def __init__(self, filename="books.txt"):
         self.filename = filename
         self.books = [] 
+        self.load_books() 
 
     def load_books(self):
         """Load books from file into memory."""
