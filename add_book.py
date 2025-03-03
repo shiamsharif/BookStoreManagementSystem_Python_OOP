@@ -10,44 +10,46 @@ from bookstore import BookStore
 from book import Book
 
 def add_book(bookstore):
-    """Add a new book to the store, ensuring no duplicate ISBNs exist."""
     print("\n--- Add a New Book ---")
     
-    # ✅ Ensure books are loaded first
-    bookstore.load_books()  
-
     isbn = input("Enter ISBN (Unique Book ID): ").strip()
-
-    # ✅ Check if ISBN exists in the loaded books
-    for book in bookstore.books:
-        if book.isbn == isbn:
-            print("❌ A book with this ISBN already exists! Please use a unique ISBN.")
-            return
-
-    title = input("Enter Title: ").strip()
-    author = input("Enter Author: ").strip()
-    genre = input("Enter Genre: ").strip()
     
-    try:
-        price = float(input("Enter Price: ").strip())
-        stock = int(input("Enter Stock Quantity: ").strip())
-        if price < 0 or stock < 0:
-            print("Price and Stock is not non-negative value.")
-            return
-    except ValueError:
-        print("❌ Invalid price or stock format! Please enter numeric values.")
+    # Check if ISBN already exists
+    if any(book.isbn == isbn for book in bookstore.books):
+        print("❌ This ISBN already exists!")
         return
 
+    title = input("Enter Title: ").strip()
+    if not title or title.istitle():
+        print("❌ The book title Error")
+        return
+
+    author = input("Enter Author: ").strip()
+    genre = input("Enter Genre: ").strip()
+
+    try:
+        price = float(input("Enter Price: ").strip())
+        if price <= 0:
+            print("❌ The price must be a positive number.")
+            return
+    except ValueError:
+        print("❌ Invalid price format! Enter a valid number (e.g., 19.99).")
+        return
+
+    try:
+        stock = int(input("Enter Stock Quantity: ").strip())
+        if stock < 0:
+            print("❌ The quantity must be a non-negative integer.")
+            return
+    except ValueError:
+        print("❌ Invalid stock format! Enter a whole number (e.g., 10).")
+        return
+
+    # Create and add the book
     new_book = Book(isbn, title, author, genre, price, stock)
-    
-    # ✅ Append new book & save
     bookstore.books.append(new_book)
     bookstore.save_books()
     print("✅ Book added successfully!")
-    
-
-
-
 
 
 

@@ -1,1 +1,2 @@
-1|Django 5 By Example|Antoni mele|Programming|570.0|10
+1 | book1 | asd | asda | 120.0 | 10
+2 | book2 | fawefweq | fewfwef | 150.0 | 20
