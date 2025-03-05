@@ -1,3 +1,8 @@
+""" 
+    1. remove book by the book id or isbn
+    2. save it 
+"""
+
 from bookstore import BookStore
 from book import Book
 

@@ -5,19 +5,16 @@
 4. add books in the file
 """
 
-# bookstore.py
 from book import Book
 
 class BookStore:
-    """Handles book-related operations."""
-
     FILE_NAME = "books.txt"
 
     def __init__(self):
         self.books = self.load_books()
 
     def load_books(self):
-        """Load books from file into memory."""
+        """load books file to memory."""
         books = []
         try:
             with open(self.FILE_NAME, "r") as file:
@@ -28,7 +25,8 @@ class BookStore:
         return books
 
     def save_books(self):
-        """Save all books to file."""
+        """save all books is file"""
         with open(self.FILE_NAME, "w") as file:
             for book in self.books:
                 file.write(book.to_string())
+

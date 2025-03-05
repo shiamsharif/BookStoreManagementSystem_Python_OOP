@@ -1,11 +1,12 @@
 """ 
 method- 
     1. user add book
-    2. price and stock varification not negative
-    3. add to the file
+    2. check ISBN or book id
+    3. Title validation (string only)
+    4. price and stock varification not negative
+    5. add to the file
 """
 
-# add_book.py
 from bookstore import BookStore
 from book import Book
 

@@ -1,3 +1,8 @@
+""" 
+    1. Search boom by this id, title or author
+    2. show the book
+"""
+
 from bookstore import BookStore
 from book import Book
 
